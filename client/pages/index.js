@@ -10,8 +10,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className='container mx-auto py-2' >
-        <h1 className='text-4xl text-center font-medium my-5'>Patient Medical History Form</h1>
+      <main className='container mx-auto' >
+        <h1 className='text-4xl text-center font-medium my-3'>Patient Medical History Form</h1>
         <Form />
       </main>
 

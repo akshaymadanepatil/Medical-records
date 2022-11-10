@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { FormContext } from '../context/FormState'
-import web3 from '../config/web3'
+// import web3 from '../config/web3'
 import medicalRecords from '../medicalRecords'
 
 const Form = () => {
@@ -8,27 +8,27 @@ const Form = () => {
 	const { formData, setFormData } = useContext(FormContext)
 
 	const saveMedicalRecords = async (data) => {
-		await medicalRecords
-			.methods
-			.saveMedicalRecords(
-				data.name,
-				data.dob,
-				data.weight,
-				data.height,
-				data.otherIllness,
-				data.gender,
-				data.reason,
-				data.allergies,
-				data.medications
-			)
+		// await medicalRecords.methods.saveMedicalRecords(
+		// 	data.name,
+		// 	data.dob,
+		// 	data.weight,
+		// 	data.height,
+		// 	data.otherIllness,
+		// 	data.gender,
+		// 	data.reason,
+		// 	data.allergies,
+		// 	data.medications
+		// )
 	}
 
-	const getMedicalRecord = async (patientName) => {
-		const patientRecord = await medicalRecords
-			.methods
-			.getMedicalRecord(patientName)
+	
 
-		console.log(patientRecord)
+	const getMedicalRecord = async (patientName) => {
+		// const patientRecord = await medicalRecords
+		// 	.methods
+		// 	.getMedicalRecord(patientName)
+
+		// console.log(patientRecord)
 	}
 
 	const onChange = (e) => {
@@ -100,6 +100,18 @@ const Form = () => {
 					<label htmlFor="medications" className="leading-7 text-sm text-gray-600">Please list your Current Medications</label>
 					<textarea rows={3} cols={40} id="medications" name="medications" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out resize-none" onChange={onChange} />
 				</div>
+			</div>
+
+			<button class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg" onClick={() => {saveMedicalRecords(formData)}}>Submit</button>
+
+			<hr className='my-10W' />
+
+			<h1 className='text-4xl text-center font-medium my-3'>See Patient Medical Record</h1>
+			<div className="p-2">
+				<label htmlFor="medications" className="leading-7 text-sm text-gray-600 mr-2">Patient Name</label>
+				<input type="text" id="weight" name="weight" className="bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out mr-2" onChange={onChange} />
+
+				<button class="mx-auto text-white bg-indigo-500 border-0 py-1 px-4 focus:outline-none hover:bg-indigo-600 rounded text-lg h-fit my-2">Submit</button>
 			</div>
 		</>
 	)

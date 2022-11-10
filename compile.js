@@ -26,14 +26,14 @@ var input = {
 
 var output = JSON.parse(solc.compile(JSON.stringify(input))).contracts['MedicalRecord.sol'].Medical;
 
-// console.log(output)
 
 try {
-    fs.writeFileSync('./abi.txt', String(JSON.stringify(output.abi)))
+	fs.writeFileSync('./abi.txt', String(JSON.stringify(output.abi)))
 } catch (error) {
-    console.error(error)
+	console.error(error)
 }
 
+// console.log(output.abi)
 module.exports = {
 	abi: output.abi,
 	bytecode: output.evm.bytecode.object
